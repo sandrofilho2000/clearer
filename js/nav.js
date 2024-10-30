@@ -3,317 +3,333 @@
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
  */
-if ( window.NodeList && ! NodeList.prototype.forEach ) {
-    NodeList.prototype.forEach = function( callback, thisArg ) {
-        thisArg = thisArg || window;
-        for ( var i = 0; i < this.length; i++ ) { // eslint-disable-line vars-on-top
-            callback.call( thisArg, this[ i ], i, this );
-        }
-    };
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = function (callback, thisArg) {
+    thisArg = thisArg || window;
+    for (var i = 0; i < this.length; i++) {
+      // eslint-disable-line vars-on-top
+      callback.call(thisArg, this[i], i, this);
+    }
+  };
 }
 
 window.alxMediaMenu = {
+  /**
+   *
+   * @param {Object} args - The arguments.
+   * @param {string} args.selector - The navigation selector.
+   * @param {int}    args.breakpoint - The breakpoint in pixels.
+   */
+  init: function (args) {
+    var self = this,
+      navs = document.querySelectorAll(args.selector);
 
-	/**
-	 *
-	 * @param {Object} args - The arguments.
-	 * @param {string} args.selector - The navigation selector.
-	 * @param {int}    args.breakpoint - The breakpoint in pixels.
-	 */
-	init: function( args ) {
-		var self = this,
-			navs = document.querySelectorAll( args.selector );
+    if (!navs.length) {
+      return;
+    }
 
-		if ( ! navs.length ) {
-			return;
-		}
+    navs.forEach(function (nav) {
+      var menuToggler = nav.querySelector(".menu-toggle");
 
-		navs.forEach( function( nav ) {
-			var menuToggler = nav.querySelector( '.menu-toggle' );
+      // Hide menu toggle button if menu is empty and return early.
+      if (!nav.querySelector("ul") && nav.querySelector(".menu-toggle")) {
+        nav.querySelector(".menu-toggle").style.display = "none";
+      }
 
-			// Hide menu toggle button if menu is empty and return early.
-			if ( ! nav.querySelector( 'ul' ) && nav.querySelector( '.menu-toggle' ) ) {
-				nav.querySelector( '.menu-toggle' ).style.display = 'none';
-			}
+      // Add nav-menu class.
+      if (!nav.classList.contains("nav-menu")) {
+        nav.classList.add("nav-menu");
+      }
 
-			// Add nav-menu class.
-			if ( ! nav.classList.contains( 'nav-menu' ) ) {
-				nav.classList.add( 'nav-menu' );
-			}
+      // Toggle the hover event listeners.
+      self.toggleHoverEventListeners(nav);
 
-			// Toggle the hover event listeners.
-			self.toggleHoverEventListeners( nav );
+      // Toggle focus classes on links.
+      nav.querySelectorAll("a,button").forEach(function (link) {
+        link.addEventListener("focus", window.alxMediaMenu.toggleFocus, true);
+        link.addEventListener("blur", window.alxMediaMenu.toggleFocus, true);
+      });
 
-			// Toggle focus classes on links.
-			nav.querySelectorAll( 'a,button' ).forEach( function( link ) {
-				link.addEventListener( 'focus', window.alxMediaMenu.toggleFocus, true );
-				link.addEventListener( 'blur', window.alxMediaMenu.toggleFocus, true );
-			});
+      menuToggler.addEventListener("click", function () {
+        if (nav.classList.contains("toggled")) {
+          menuToggler.setAttribute("aria-expanded", "false");
+          nav.classList.remove("toggled");
+        } else {
+          menuToggler.setAttribute("aria-expanded", "true");
+          nav.classList.add("toggled");
+        }
+      });
 
-			menuToggler.addEventListener( 'click', function() {
-				if ( nav.classList.contains( 'toggled' ) ) {
-					menuToggler.setAttribute( 'aria-expanded', 'false' );
-					nav.classList.remove( 'toggled' );
-				} else {
-					menuToggler.setAttribute( 'aria-expanded', 'true' );
-					nav.classList.add( 'toggled' );
-				}
-			});
+      // If on mobile nav, close it when clicking outside.
+      // If on desktop, close expanded submenus when clicking outside.
+      document.addEventListener("click", function (event) {
+        if (!nav.contains(event.target)) {
+          // Mobile.
+          nav.classList.remove("toggled");
 
-			// If on mobile nav, close it when clicking outside.
-			// If on desktop, close expanded submenus when clicking outside.
-			document.addEventListener( 'click', function( event ) {
-				if ( ! nav.contains( event.target ) ) {
+          // Desktop.
+          nav
+            .querySelectorAll("button.active,.sub-menu.active")
+            .forEach(function (el) {
+              el.classList.remove("active");
+            });
 
-					// Mobile.
-					nav.classList.remove( 'toggled' );
+          menuToggler.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
 
-					// Desktop.
-					nav.querySelectorAll( 'button.active,.sub-menu.active' ).forEach( function( el ) {
-						el.classList.remove( 'active' );
-					});
+    // Toggle mobile classes on initial load.
+    window.alxMediaMenu.toggleMobile(args.selector, args.breakpoint);
 
-					menuToggler.setAttribute( 'aria-expanded', 'false' );
-				}
-			});
-		});
+    // Toggle mobile classes on resize.
+    window.addEventListener("resize", function () {
+      // If timer is null, reset it to our bounceDelay and run, otherwise wait until timer is cleared.
+      if (!window.resizeDebouncedTimeout) {
+        window.resizeDebouncedTimeout = setTimeout(function () {
+          window.resizeDebouncedTimeout = null;
+          window.alxMediaMenu.toggleMobile(args.selector, args.breakpoint);
+        }, 250);
+      }
+    });
 
-		// Toggle mobile classes on initial load.
-		window.alxMediaMenu.toggleMobile( args.selector, args.breakpoint );
+    // Toggle focus classes to allow submenu access on tables.
+    document.querySelectorAll(args.selector).forEach(function (el) {
+      window.alxMediaMenu.toggleFocusTouch(el);
+    });
+  },
 
-		// Toggle mobile classes on resize.
-		window.addEventListener( 'resize', function() {
+  /**
+   * Expand a menu item.
+   *
+   * @param {Element} - The menu item (DOM element).
+   * @return {void}
+   */
+  toggleItem: function (el) {
+    var parentLi = this.helper.firstAncestorMatch(el, "li"),
+      parentUl = this.helper.firstAncestorMatch(el, "ul"),
+      ul = parentLi.querySelector("ul.sub-menu");
 
-			// If timer is null, reset it to our bounceDelay and run, otherwise wait until timer is cleared.
-			if ( ! window.resizeDebouncedTimeout ) {
-				window.resizeDebouncedTimeout = setTimeout( function() {
-					window.resizeDebouncedTimeout = null;
-					window.alxMediaMenu.toggleMobile( args.selector, args.breakpoint );
-				}, 250 );
-			}
-		});
+    parentLi.classList.remove("hover");
 
-		// Toggle focus classes to allow submenu access on tables.
-		document.querySelectorAll( args.selector ).forEach( function( el ) {
-			window.alxMediaMenu.toggleFocusTouch( el );
-		});
-	},
+    ul.setAttribute("tabindex", "-1");
+    this.helper.toggleClass(ul, "active");
+    this.helper.toggleClass(el, "active");
 
-	/**
-	 * Expand a menu item.
-	 *
-	 * @param {Element} - The menu item (DOM element).
-	 * @return {void}
-	 */
-	toggleItem: function( el ) {
-		var parentLi = this.helper.firstAncestorMatch( el, 'li' ),
-			parentUl = this.helper.firstAncestorMatch( el, 'ul' ),
-			ul = parentLi.querySelector( 'ul.sub-menu' );
+    // Go one level up in the list, and close other items that are already open.
+    parentUl.querySelectorAll("ul.sub-menu").forEach(function (subMenu) {
+      var subMenuButton;
+      if (!parentLi.contains(subMenu)) {
+        subMenu.classList.remove("active");
+        subMenuButton = subMenu.parentNode.querySelector("button.active");
+        if (subMenuButton) {
+          subMenuButton.classList.remove("active");
+        }
+      }
+    });
+  },
 
-		parentLi.classList.remove( 'hover' );
+  /**
+   * Toggles a mobile class to elements matching our selector,
+   * depending on the defined breakpoint.
+   *
+   * @param {string} selector - The elements where we want to toggle our mobile class.
+   * @param {string} className - The class-name we want to toggle.
+   * @param {int} breakpoint - The breakpoint.
+   * @return {void}
+   */
+  toggleMobile: function (selector, breakpoint) {
+    var self = this,
+      screenWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth,
+      navs = document.body.querySelectorAll(selector),
+      isMobile;
 
-		ul.setAttribute( 'tabindex', '-1' );
-		this.helper.toggleClass( ul, 'active' );
-		this.helper.toggleClass( el, 'active' );
+    breakpoint = breakpoint || 720;
+    isMobile = breakpoint > screenWidth;
 
-		// Go one level up in the list, and close other items that are already open.
-		parentUl.querySelectorAll( 'ul.sub-menu' ).forEach( function( subMenu ) {
-			var subMenuButton;
-			if ( ! parentLi.contains( subMenu ) ) {
-				subMenu.classList.remove( 'active' );
-				subMenuButton = subMenu.parentNode.querySelector( 'button.active' );
-				if ( subMenuButton ) {
-					subMenuButton.classList.remove( 'active' );
-				}
-			}
-		});
-	},
+    if (isMobile) {
+      navs.forEach(function (nav) {
+        if (!nav.classList.contains("mobile")) {
+          nav.classList.add("mobile");
+          self.toggleHoverEventListeners(nav);
+        }
+      });
+    } else {
+      navs.forEach(function (nav) {
+        if (nav.classList.contains("mobile")) {
+          nav.classList.remove("mobile");
+          self.toggleHoverEventListeners(nav);
+        }
+      });
+    }
+  },
 
-	/**
-	 * Toggles a mobile class to elements matching our selector,
-	 * depending on the defined breakpoint.
-	 *
-	 * @param {string} selector - The elements where we want to toggle our mobile class.
-	 * @param {string} className - The class-name we want to toggle.
-	 * @param {int} breakpoint - The breakpoint.
-	 * @return {void}
-	 */
-	toggleMobile: function( selector, breakpoint ) {
-		var self = this,
-			screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-			navs = document.body.querySelectorAll( selector ),
-			isMobile;
+  /**
+   * Add a "hover" class.
+   *
+   * @return {void}
+   */
+  liMouseEnterEvent: function () {
+    this.classList.add("hover");
+  },
 
-		breakpoint = breakpoint || 720;
-		isMobile = breakpoint > screenWidth;
+  /**
+   * Remove the "hover" class.
+   *
+   * @return {void}
+   */
+  liMouseLeaveEvent: function () {
+    this.classList.remove("hover");
+  },
 
-		if ( isMobile ) {
-			navs.forEach( function( nav ) {
-				if ( ! nav.classList.contains( 'mobile' ) ) {
-					nav.classList.add( 'mobile' );
-					self.toggleHoverEventListeners( nav );
-				}
-			});
-		} else {
-			navs.forEach( function( nav ) {
-				if ( nav.classList.contains( 'mobile' ) ) {
-					nav.classList.remove( 'mobile' );
-					self.toggleHoverEventListeners( nav );
-				}
-			});
-		}
-	},
+  /**
+   *
+   * @param {Element} nav - The nav element.
+   * @return {void}
+   */
+  toggleHoverEventListeners: function (nav) {
+    if (nav.classList.contains("mobile")) {
+      this.removeHoverEventListeners(nav);
+    } else {
+      this.addHoverEventListeners(nav);
+    }
+  },
 
-	/**
-	 * Add a "hover" class.
-	 *
-	 * @return {void}
-	 */
-	liMouseEnterEvent: function() {
-		this.classList.add( 'hover' );
-	},
+  /**
+   * Add event-listeners for hover events.
+   *
+   * @param {Element} nav - The nav element.
+   * @return {void}
+   */
+  addHoverEventListeners: function (nav) {
+    nav.querySelectorAll("li").forEach(function (li) {
+      li.addEventListener("mouseenter", window.alxMediaMenu.liMouseEnterEvent);
+      li.addEventListener("mouseleave", window.alxMediaMenu.liMouseLeaveEvent);
+    });
+  },
 
-	/**
-	 * Remove the "hover" class.
-	 *
-	 * @return {void}
-	 */
-	liMouseLeaveEvent: function() {
-		this.classList.remove( 'hover' );
-	},
+  /**
+   * Remove event-listeners for hover events.
+   *
+   * @param {Element} nav - The nav element.
+   * @return {void}
+   */
+  removeHoverEventListeners: function (nav) {
+    nav.querySelectorAll("li").forEach(function (li) {
+      li.removeEventListener(
+        "mouseenter",
+        window.alxMediaMenu.liMouseEnterEvent
+      );
+      li.removeEventListener(
+        "mouseleave",
+        window.alxMediaMenu.liMouseLeaveEvent
+      );
+    });
+  },
 
-	/**
-	 *
-	 * @param {Element} nav - The nav element.
-	 * @return {void}
-	 */
-	toggleHoverEventListeners: function( nav ) {
-		if ( nav.classList.contains( 'mobile' ) ) {
-			this.removeHoverEventListeners( nav );
-		} else {
-			this.addHoverEventListeners( nav );
-		}
-	},
+  /**
+   * Sets or removes .focus class on an element.
+   *
+   * @return {void}
+   */
+  toggleFocus: function () {
+    var self = this;
 
-	/**
-	 * Add event-listeners for hover events.
-	 *
-	 * @param {Element} nav - The nav element.
-	 * @return {void}
-	 */
-	addHoverEventListeners: function( nav ) {
-		nav.querySelectorAll( 'li' ).forEach( function( li ) {
-			li.addEventListener( 'mouseenter', window.alxMediaMenu.liMouseEnterEvent );
-			li.addEventListener( 'mouseleave', window.alxMediaMenu.liMouseLeaveEvent );
-		});
-	},
+    // Move up through the ancestors of the current link until we hit .nav-menu.
+    while (-1 === self.className.indexOf("nav-menu")) {
+      // On li elements toggle the class .focus.
+      if ("li" === self.tagName.toLowerCase()) {
+        if (-1 !== self.className.indexOf("focus")) {
+          self.className = self.className.replace(" focus", "");
+        } else {
+          self.className += " focus";
+        }
+      }
 
-	/**
-	 * Remove event-listeners for hover events.
-	 *
-	 * @param {Element} nav - The nav element.
-	 * @return {void}
-	 */
-	removeHoverEventListeners: function( nav ) {
-		nav.querySelectorAll( 'li' ).forEach( function( li ) {
-			li.removeEventListener( 'mouseenter', window.alxMediaMenu.liMouseEnterEvent );
-			li.removeEventListener( 'mouseleave', window.alxMediaMenu.liMouseLeaveEvent );
-		});
-	},
+      self = self.parentElement;
+    }
+  },
 
-	/**
-	 * Sets or removes .focus class on an element.
-	 *
-	 * @return {void}
-	 */
-	toggleFocus: function() {
-		var self = this;
+  /**
+   * Toggle focus classes to allow submenu access on tables.
+   *
+   * @param {Element} el - The menu element.
+   * @return {void}
+   */
+  toggleFocusTouch: function (el) {
+    var touchStartFn,
+      parentLinks = el.querySelectorAll(
+        ".menu-item-has-children > a, .page_item_has_children > a"
+      );
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
+    if ("ontouchstart" in window) {
+      touchStartFn = function (e) {
+        var menuItem = this.parentNode;
 
-			self = self.parentElement;
-		}
-	},
+        if (!menuItem.classList.contains("focus")) {
+          e.preventDefault();
+          menuItem.parentNode.children.forEach(function (child) {
+            if (menuItem !== child) {
+              child.classList.remove("focus");
+            }
+          });
+          menuItem.classList.add("focus");
+        } else {
+          menuItem.classList.remove("focus");
+        }
+      };
 
-	/**
-	 * Toggle focus classes to allow submenu access on tables.
-	 *
-	 * @param {Element} el - The menu element.
-	 * @return {void}
-	 */
-	toggleFocusTouch: function( el ) {
-		var touchStartFn,
-			parentLinks = el.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+      parentLinks.forEach(function (parentLink) {
+        parentLink.addEventListener("touchstart", touchStartFn, false);
+      });
+    }
+  },
 
-		if ( 'ontouchstart' in window ) {
-			touchStartFn = function( e ) {
-				var menuItem = this.parentNode;
+  /**
+   * Helper methods.
+   */
+  helper: {
+    /**
+     * Toggle a class to an element.
+     *
+     * @param {Element} el - The element.
+     * @param {string} className - The class we want to toggle.
+     * @return {void}
+     */
+    toggleClass: function (el, className) {
+      if (el.classList.contains(className)) {
+        el.classList.remove(className);
+      } else {
+        el.classList.add(className);
+      }
+    },
 
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					menuItem.parentNode.children.forEach( function( child ) {
-						if ( menuItem !== child ) {
-							child.classList.remove( 'focus' );
-						}
-					});
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
-			};
-
-			parentLinks.forEach( function( parentLink ) {
-				parentLink.addEventListener( 'touchstart', touchStartFn, false );
-			});
-		}
-	},
-
-	/**
-	 * Helper methods.
-	 */
-	helper: {
-
-		/**
-		 * Toggle a class to an element.
-		 *
-		 * @param {Element} el - The element.
-		 * @param {string} className - The class we want to toggle.
-		 * @return {void}
-		 */
-		toggleClass: function( el, className ) {
-			if ( el.classList.contains( className ) ) {
-				el.classList.remove( className );
-			} else {
-				el.classList.add( className );
-			}
-		},
-
-		/**
-		 * Get the 1st ancestor of an element that matches our selector.
-		 *
-		 * @param {Element} el - The element.
-		 * @param {string} selector - The class we want to toggle.
-		 * @return {Element}
-		 */
-		firstAncestorMatch: function( el, selector ) {
-			if ( el.parentNode.matches( selector ) ) {
-				return el.parentNode;
-			}
-			return this.firstAncestorMatch( el.parentNode, selector );
-		}
-	}
+    /**
+     * Get the 1st ancestor of an element that matches our selector.
+     *
+     * @param {Element} el - The element.
+     * @param {string} selector - The class we want to toggle.
+     * @return {Element}
+     */
+    firstAncestorMatch: function (el, selector) {
+      if (el.parentNode.matches(selector)) {
+        return el.parentNode;
+      }
+      return this.firstAncestorMatch(el.parentNode, selector);
+    },
+  },
 };
 
 window.alxMediaMenu.init({
-	selector: '.main-navigation.nav-menu',
-	breakpoint: 720
+  selector: ".main-navigation.nav-menu",
+  breakpoint: 720,
 });
+
+document
+  .querySelector("button.menu-mobile-toggle")
+  .addEventListener("click", () => {
+    document.querySelector("#wrap-nav-mobile").classList.toggle("active");
+  });

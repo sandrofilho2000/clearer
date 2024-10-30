@@ -50,13 +50,19 @@
 				<?php get_search_form(); ?>
 			</div>
 		</div>
+		<?php if ( has_nav_menu('mobile') ): ?>
+			<button class="menu-mobile-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<span class="screen-reader-text">Expand Menu</span><div class="menu-toggle-icon"><span></span><span></span><span></span></div>			
+			</button>			
+		<?php endif; ?>
+
 	<?php endif; ?>
 	</header><!--/#header-->
-	<?php if ( has_nav_menu('mobile') ): ?>
-				<div id="wrap-nav-mobile" class="wrap-nav">
-					<?php \Clearer\Nav::nav_menu(array('theme_location'=>'mobile','menu_id' => 'nav-mobile','fallback_cb'=> false)); ?>
-				</div>
-			<?php endif; ?>
+	<?php if (has_nav_menu('mobile')): ?>
+		<div id="wrap-nav-mobile" class="wrap-nav">
+			<?php clearer_custom_nav_menu('mobile'); ?>
+		</div>
+	<?php endif; ?>
 
 	
 	<?php if ( get_header_image() ) : ?>

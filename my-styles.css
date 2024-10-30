@@ -8,6 +8,7 @@
   height: 75px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 body #header .wrapper-inner {
@@ -17,6 +18,7 @@ body #header .wrapper-inner {
 body #header .wrapper-inner .site-title {
   position: absolute;
   left: 0;
+  width: auto;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -27,8 +29,28 @@ body #header .wrapper-inner .site-title {
 
 #wrap-nav-mobile {
   width: 100vw;
+  height: 0px;
   height: auto;
+  z-index: 3;
   position: absolute;
-  z-index: 10;
+  border-bottom: 1px solid #9e61c7;
+  transform: translateY(-100%);
+  transition: 0.3s;
+}
+#wrap-nav-mobile.active {
+  transform: translateY(0);
+}
+
+nav.custom-nav-menu ul {
+  padding: 10px 0;
   background-color: white;
+}
+nav.custom-nav-menu ul li {
+  padding: 5px 10px;
+}
+nav.custom-nav-menu ul li:not(:last-of-type) {
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+nav.custom-nav-menu ul li a {
+  font-weight: bold;
 }/*# sourceMappingURL=my-styles.css.map */

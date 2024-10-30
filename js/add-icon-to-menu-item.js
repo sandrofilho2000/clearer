@@ -1,8 +1,4 @@
 document.querySelectorAll(".menu-item-wrapper").forEach((item) => {
-  console.log(
-    "🚀 ~ document.querySelectorAll ~ item:",
-    item.querySelector("a").href
-  );
   if (item.querySelector("a").href == "http://somdaterra.store/") {
     item.innerHTML = `
      ${item.innerHTML}

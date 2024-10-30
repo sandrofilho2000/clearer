@@ -498,6 +498,30 @@ if ( ! function_exists( 'clearer_body_class' ) ) {
 add_filter( 'body_class', 'clearer_body_class' );
 
 
+function clearer_custom_nav_menu($location) {
+    if (($locations = get_nav_menu_locations()) && isset($locations[$location])) {
+        $menu = wp_get_nav_menu_object($locations[$location]);
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+        if ($menu_items) {
+            echo '<nav class="custom-nav-menu">';
+            echo '<ul>';
+
+            foreach ($menu_items as $item) {
+                echo '<li class="menu-mobile-item">';
+                echo '<a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+                echo '</li>';
+                echo '</hr>';
+
+            }
+
+            echo '</ul>';
+            echo '</nav>';
+        }
+    }
+}
+
+
 /*  Excerpt ending
 /* ------------------------------------ */
 if ( ! function_exists( 'clearer_excerpt_more' ) ) {
