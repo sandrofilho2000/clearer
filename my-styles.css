@@ -41,6 +41,10 @@ body #header .wrapper-inner .site-title {
   transform: translateY(0);
 }
 
+.menu-mobile-toggle {
+  display: none;
+}
+
 nav.custom-nav-menu ul {
   padding: 10px 0;
   background-color: white;

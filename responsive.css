@@ -37,6 +37,10 @@
     padding: 10px 10px;
   }
 
+  button.menu-mobile-toggle {
+    display: block;
+  }
+
   #subheader {
     top: 75px;
     width: 100%;

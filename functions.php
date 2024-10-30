@@ -212,7 +212,6 @@ if ( ! function_exists( 'clearer_scripts' ) ) {
 		if ( get_theme_mod( 'theme-toggle','on' ) == 'on' ) { wp_enqueue_script( 'clearer-theme-toggle', get_template_directory_uri() . '/js/theme-toggle.js', array( 'jquery' ),'', true ); }
 		wp_enqueue_script( 'clearer-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ),'', true );
 		if ( is_singular() && get_option( 'thread_comments' ) )	{ wp_enqueue_script( 'comment-reply' ); }
-		wp_enqueue_script( 'add-icon-to-menu-item', get_template_directory_uri() . '/js/add-icon-to-menu-item.js', array( 'jquery' ),'', true );
 	}  
 	
 }
