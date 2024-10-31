@@ -34,7 +34,17 @@
 @media only screen and (max-width: 719px) {
   .sticky-header.admin-bar #header {
     margin-bottom: 45px;
-    padding: 10px 10px;
+    padding: 0px 10px;
+    padding-top: 50px;
+    height: 125px;
+  }
+
+  div .top-banner a {
+    font-size: 11px;
+  }
+
+  div.top-banner {
+    height: 50px;
   }
 
   button.menu-mobile-toggle {
@@ -42,7 +52,7 @@
   }
 
   #subheader {
-    top: 75px;
+    top: 125px;
     width: 100%;
     left: 0;
     position: absolute;
@@ -94,11 +104,17 @@
   }
 
   .sticky-header .wrapper-outer {
-    padding-top: 0;
+    padding-top: 0px;
+  }
+
+  .wrapper-inner {
+    padding-top: 50px;
   }
   .sticky-header #header {
     position: relative;
+    min-height: 125px;
   }
+
   .sticky-header.admin-bar #header {
     top: 0;
   }

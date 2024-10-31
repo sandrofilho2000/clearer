@@ -452,6 +452,22 @@ if ( ! function_exists( 'clearer_related_posts' ) ) {
 	
 }
 
+function slugify($string) {
+    // Convert to lowercase
+    $string = strtolower($string);
+    
+    // Replace any special characters with spaces
+    $string = preg_replace('/[^\w\s-]/', '', $string);
+    
+    // Replace spaces and hyphens with a single hyphen
+    $string = preg_replace('/[\s-]+/', '-', $string);
+    
+    // Trim any leading or trailing hyphens
+    $string = trim($string, '-');
+    
+    return $string;
+}
+
 
 /*  Get featured post ids
 /* ------------------------------------ */

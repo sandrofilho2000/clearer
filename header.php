@@ -27,8 +27,12 @@
 
 <div class="wrapper-outer">
 
-	<header id="header" class="nav-menu-dropdown-left">
-	
+	<header id="header" class="nav-menu-dropdown-left pt-10">
+		<div class="top-banner absolute left-0 flex items-center justify-center w-full fixed top-0 z-10">
+			<a class="text-center text-white  hover:text-white" target="_blank" href="https://guitarrarockonline.com.br/pv-c00-guitarra-rock-academy/">
+				🎸 Quer se tornar um <strong>MESTRE</strong> da <strong>GUITARRA</strong>? Clique <strong>AQUI</strong> e descubra <strong>COMO</strong>! 🎸
+			</a>
+		</div>
 		<div class="wrapper-inner group">
 			<?php echo clearer_site_title(); ?>
 			<?php if ( display_header_text() == true ): ?>

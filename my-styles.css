@@ -5,10 +5,18 @@
 
 #header {
   padding: 10px 20px;
-  height: 75px;
+  min-height: 75px;
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.top-banner {
+  height: 40px;
+}
+
+.top-banner a {
+  font-size: 13px;
 }
 
 body #header .wrapper-inner {
@@ -29,7 +37,6 @@ body #header .wrapper-inner .site-title {
 
 #wrap-nav-mobile {
   width: 100vw;
-  height: 0px;
   height: auto;
   z-index: 3;
   position: absolute;
@@ -57,4 +64,4 @@ nav.custom-nav-menu ul li:not(:last-of-type) {
 }
 nav.custom-nav-menu ul li a {
   font-weight: bold;
-}/*# sourceMappingURL=my-styles.css.map */
+} /*# sourceMappingURL=my-styles.css.map */
