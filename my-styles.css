@@ -19,6 +19,10 @@
   font-size: 13px;
 }
 
+.top-banner a:hover {
+  color: white;
+}
+
 body #header .wrapper-inner {
   padding: 0;
   position: relative;
@@ -31,12 +35,16 @@ body #header .wrapper-inner .site-title {
   transform: translateY(-50%);
 }
 
+img.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail {
+  border-radius: 5px;
+}
+
 .site-title a img {
   width: 118.51px;
 }
 
 #wrap-nav-mobile {
-  width: 100vw;
+  width: 100%;
   height: auto;
   z-index: 3;
   position: absolute;
@@ -53,7 +61,7 @@ body #header .wrapper-inner .site-title {
 }
 
 nav.custom-nav-menu ul {
-  padding: 10px 0;
+  padding: 2px 0;
   background-color: white;
 }
 nav.custom-nav-menu ul li {

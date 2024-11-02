@@ -1,0 +1,254 @@
+{
+  "id": 348,
+  "date": "2024-11-02T03:53:02",
+  "date_gmt": "2024-11-02T03:53:02",
+  "guid": { "rendered": "https://blog.somdaterra.store/?p=348" },
+  "modified": "2024-11-02T04:16:03",
+  "modified_gmt": "2024-11-02T04:16:03",
+  "slug": "ola",
+  "status": "publish",
+  "type": "post",
+  "link": "https://blog.somdaterra.store/2024/11/02/ola/",
+  "title": { "rendered": "Ol\u00e1" },
+  "content": { "rendered": "<p class=\"\">acsc</p>", "protected": false },
+  "excerpt": { "rendered": "<p>acsc</p>\n", "protected": false },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": { "_acf_changed": false, "nf_dc_page": "", "footnotes": "" },
+  "categories": [1],
+  "tags": [],
+  "class_list": [
+    "post-348",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "hentry",
+    "category-uncategorized"
+  ],
+  "acf": { "produtos": [186] },
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v23.7 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Ol\u00e1 | Som da Terra Blog</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://blog.somdaterra.store/2024/11/02/ola/\" />\n<meta property=\"og:locale\" content=\"pt_PT\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Ol\u00e1 | Som da Terra Blog\" />\n<meta property=\"og:description\" content=\"acsc\" />\n<meta property=\"og:url\" content=\"https://blog.somdaterra.store/2024/11/02/ola/\" />\n<meta property=\"og:site_name\" content=\"Som da Terra Blog\" />\n<meta property=\"article:published_time\" content=\"2024-11-02T03:53:02+00:00\" />\n<meta property=\"article:modified_time\" content=\"2024-11-02T04:16:03+00:00\" />\n<meta property=\"og:image\" content=\"https://blog.somdaterra.store/wp-content/uploads/2024/10/metatags_img-1.png\" />\n\t<meta property=\"og:image:width\" content=\"4745\" />\n\t<meta property=\"og:image:height\" content=\"2788\" />\n\t<meta property=\"og:image:type\" content=\"image/png\" />\n<meta name=\"author\" content=\"Sandro Filho\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Written by\" />\n\t<meta name=\"twitter:data1\" content=\"Sandro Filho\" />\n\t<meta name=\"twitter:label2\" content=\"Est. reading time\" />\n\t<meta name=\"twitter:data2\" content=\"1 minuto\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/#article\",\"isPartOf\":{\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/\"},\"author\":{\"name\":\"Sandro Filho\",\"@id\":\"https://blog.somdaterra.store/#/schema/person/d552c318de347e329f9de4b0db345373\"},\"headline\":\"Ol\u00e1\",\"datePublished\":\"2024-11-02T03:53:02+00:00\",\"dateModified\":\"2024-11-02T04:16:03+00:00\",\"mainEntityOfPage\":{\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/\"},\"wordCount\":2,\"commentCount\":0,\"publisher\":{\"@id\":\"https://blog.somdaterra.store/#organization\"},\"articleSection\":[\"Uncategorized\"],\"inLanguage\":\"pt-PT\",\"potentialAction\":[{\"@type\":\"CommentAction\",\"name\":\"Comment\",\"target\":[\"https://blog.somdaterra.store/2024/11/02/ola/#respond\"]}]},{\"@type\":\"WebPage\",\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/\",\"url\":\"https://blog.somdaterra.store/2024/11/02/ola/\",\"name\":\"Ol\u00e1 | Som da Terra Blog\",\"isPartOf\":{\"@id\":\"https://blog.somdaterra.store/#website\"},\"datePublished\":\"2024-11-02T03:53:02+00:00\",\"dateModified\":\"2024-11-02T04:16:03+00:00\",\"breadcrumb\":{\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/#breadcrumb\"},\"inLanguage\":\"pt-PT\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://blog.somdaterra.store/2024/11/02/ola/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://blog.somdaterra.store/2024/11/02/ola/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://blog.somdaterra.store/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ol\u00e1\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://blog.somdaterra.store/#website\",\"url\":\"https://blog.somdaterra.store/\",\"name\":\"Som da Terra Blog\",\"description\":\"Posts sobre o mundo da m\u00fasica e muito mais\",\"publisher\":{\"@id\":\"https://blog.somdaterra.store/#organization\"},\"alternateName\":\"Blog Som da Terra\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://blog.somdaterra.store/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"pt-PT\"},{\"@type\":\"Organization\",\"@id\":\"https://blog.somdaterra.store/#organization\",\"name\":\"Som da Terra Blog\",\"url\":\"https://blog.somdaterra.store/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"pt-PT\",\"@id\":\"https://blog.somdaterra.store/#/schema/logo/image/\",\"url\":\"https://blog.somdaterra.store/wp-content/uploads/2024/10/cropped-logo.png\",\"contentUrl\":\"https://blog.somdaterra.store/wp-content/uploads/2024/10/cropped-logo.png\",\"width\":1596,\"height\":432,\"caption\":\"Som da Terra Blog\"},\"image\":{\"@id\":\"https://blog.somdaterra.store/#/schema/logo/image/\"}},{\"@type\":\"Person\",\"@id\":\"https://blog.somdaterra.store/#/schema/person/d552c318de347e329f9de4b0db345373\",\"name\":\"Sandro Filho\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"pt-PT\",\"@id\":\"https://blog.somdaterra.store/#/schema/person/image/\",\"url\":\"https://secure.gravatar.com/avatar/08e46465ad0cb39cb9e72d526bf1bb99?s=96&d=mm&r=g\",\"contentUrl\":\"https://secure.gravatar.com/avatar/08e46465ad0cb39cb9e72d526bf1bb99?s=96&d=mm&r=g\",\"caption\":\"Sandro Filho\"},\"sameAs\":[\"http://sandrofilho.dev\"],\"url\":\"https://blog.somdaterra.store/author/sandro-filho/\"}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+    "title": "Ol\u00e1 | Som da Terra Blog",
+    "robots": {
+      "index": "index",
+      "follow": "follow",
+      "max-snippet": "max-snippet:-1",
+      "max-image-preview": "max-image-preview:large",
+      "max-video-preview": "max-video-preview:-1"
+    },
+    "canonical": "https://blog.somdaterra.store/2024/11/02/ola/",
+    "og_locale": "pt_PT",
+    "og_type": "article",
+    "og_title": "Ol\u00e1 | Som da Terra Blog",
+    "og_description": "acsc",
+    "og_url": "https://blog.somdaterra.store/2024/11/02/ola/",
+    "og_site_name": "Som da Terra Blog",
+    "article_published_time": "2024-11-02T03:53:02+00:00",
+    "article_modified_time": "2024-11-02T04:16:03+00:00",
+    "og_image": [
+      {
+        "width": 4745,
+        "height": 2788,
+        "url": "https://blog.somdaterra.store/wp-content/uploads/2024/10/metatags_img-1.png",
+        "type": "image/png"
+      }
+    ],
+    "author": "Sandro Filho",
+    "twitter_card": "summary_large_image",
+    "twitter_misc": {
+      "Written by": "Sandro Filho",
+      "Est. reading time": "1 minuto"
+    },
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://blog.somdaterra.store/2024/11/02/ola/#article",
+          "isPartOf": {
+            "@id": "https://blog.somdaterra.store/2024/11/02/ola/"
+          },
+          "author": {
+            "name": "Sandro Filho",
+            "@id": "https://blog.somdaterra.store/#/schema/person/d552c318de347e329f9de4b0db345373"
+          },
+          "headline": "Ol\u00e1",
+          "datePublished": "2024-11-02T03:53:02+00:00",
+          "dateModified": "2024-11-02T04:16:03+00:00",
+          "mainEntityOfPage": {
+            "@id": "https://blog.somdaterra.store/2024/11/02/ola/"
+          },
+          "wordCount": 2,
+          "commentCount": 0,
+          "publisher": { "@id": "https://blog.somdaterra.store/#organization" },
+          "articleSection": ["Uncategorized"],
+          "inLanguage": "pt-PT",
+          "potentialAction": [
+            {
+              "@type": "CommentAction",
+              "name": "Comment",
+              "target": [
+                "https://blog.somdaterra.store/2024/11/02/ola/#respond"
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://blog.somdaterra.store/2024/11/02/ola/",
+          "url": "https://blog.somdaterra.store/2024/11/02/ola/",
+          "name": "Ol\u00e1 | Som da Terra Blog",
+          "isPartOf": { "@id": "https://blog.somdaterra.store/#website" },
+          "datePublished": "2024-11-02T03:53:02+00:00",
+          "dateModified": "2024-11-02T04:16:03+00:00",
+          "breadcrumb": {
+            "@id": "https://blog.somdaterra.store/2024/11/02/ola/#breadcrumb"
+          },
+          "inLanguage": "pt-PT",
+          "potentialAction": [
+            {
+              "@type": "ReadAction",
+              "target": ["https://blog.somdaterra.store/2024/11/02/ola/"]
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://blog.somdaterra.store/2024/11/02/ola/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://blog.somdaterra.store/"
+            },
+            { "@type": "ListItem", "position": 2, "name": "Ol\u00e1" }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://blog.somdaterra.store/#website",
+          "url": "https://blog.somdaterra.store/",
+          "name": "Som da Terra Blog",
+          "description": "Posts sobre o mundo da m\u00fasica e muito mais",
+          "publisher": { "@id": "https://blog.somdaterra.store/#organization" },
+          "alternateName": "Blog Som da Terra",
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://blog.somdaterra.store/?s={search_term_string}"
+              },
+              "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": true,
+                "valueName": "search_term_string"
+              }
+            }
+          ],
+          "inLanguage": "pt-PT"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://blog.somdaterra.store/#organization",
+          "name": "Som da Terra Blog",
+          "url": "https://blog.somdaterra.store/",
+          "logo": {
+            "@type": "ImageObject",
+            "inLanguage": "pt-PT",
+            "@id": "https://blog.somdaterra.store/#/schema/logo/image/",
+            "url": "https://blog.somdaterra.store/wp-content/uploads/2024/10/cropped-logo.png",
+            "contentUrl": "https://blog.somdaterra.store/wp-content/uploads/2024/10/cropped-logo.png",
+            "width": 1596,
+            "height": 432,
+            "caption": "Som da Terra Blog"
+          },
+          "image": {
+            "@id": "https://blog.somdaterra.store/#/schema/logo/image/"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://blog.somdaterra.store/#/schema/person/d552c318de347e329f9de4b0db345373",
+          "name": "Sandro Filho",
+          "image": {
+            "@type": "ImageObject",
+            "inLanguage": "pt-PT",
+            "@id": "https://blog.somdaterra.store/#/schema/person/image/",
+            "url": "https://secure.gravatar.com/avatar/08e46465ad0cb39cb9e72d526bf1bb99?s=96&d=mm&r=g",
+            "contentUrl": "https://secure.gravatar.com/avatar/08e46465ad0cb39cb9e72d526bf1bb99?s=96&d=mm&r=g",
+            "caption": "Sandro Filho"
+          },
+          "sameAs": ["http://sandrofilho.dev"],
+          "url": "https://blog.somdaterra.store/author/sandro-filho/"
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": [
+      { "href": "https://blog.somdaterra.store/wp-json/wp/v2/posts/348" }
+    ],
+    "collection": [
+      { "href": "https://blog.somdaterra.store/wp-json/wp/v2/posts" }
+    ],
+    "about": [
+      { "href": "https://blog.somdaterra.store/wp-json/wp/v2/types/post" }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/comments?post=348"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/posts/348/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 356,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/posts/348/revisions/356"
+      }
+    ],
+    "acf:post": [
+      {
+        "embeddable": true,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/product/186"
+      }
+    ],
+    "wp:attachment": [
+      { "href": "https://blog.somdaterra.store/wp-json/wp/v2/media?parent=348" }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/categories?post=348"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://blog.somdaterra.store/wp-json/wp/v2/tags?post=348"
+      }
+    ],
+    "curies": [
+      { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+    ]
+  }
+}

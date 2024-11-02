@@ -28,11 +28,28 @@
 <div class="wrapper-outer">
 
 	<header id="header" class="nav-menu-dropdown-left pt-10">
-		<div class="top-banner absolute left-0 flex items-center justify-center w-full fixed top-0 z-10">
-			<a class="text-center text-white  hover:text-white" target="_blank" href="https://guitarrarockonline.com.br/pv-c00-guitarra-rock-academy/">
-				🎸 Quer se tornar um <strong>MESTRE</strong> da <strong>GUITARRA</strong>? Clique <strong>AQUI</strong> e descubra <strong>COMO</strong>! 🎸
-			</a>
-		</div>
+	<?php
+		$args = array(
+			'post_type'      => 'anuncio_topbar',
+			'posts_per_page' => -1, 
+		);
+
+		$query = new WP_Query($args);
+
+		if ($query->have_posts()) {
+			echo '<div class="top-banner slick-top-banner absolute left-0 flex text-center text-white hover:text-white items-center justify-center w-full fixed top-0 z-10">';
+			while ($query->have_posts()) {
+				$query->the_post();
+
+				echo the_content();
+
+			}
+			echo '</div>';
+		}
+
+		// Reset post data
+		wp_reset_postdata();
+		?>
 		<div class="wrapper-inner group">
 			<?php echo clearer_site_title(); ?>
 			<?php if ( display_header_text() == true ): ?>

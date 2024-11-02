@@ -9,124 +9,195 @@
 
 "use strict";
 
-jQuery(document).ready(function($) {
-
-/*  Scroll to top
+jQuery(document).ready(function ($) {
+  /*  Scroll to top
 /* ------------------------------------ */
-	$('a#back-to-top').on('click', function() {
-		$('html, body').animate({scrollTop:0},'slow');
-		return false;
-	});
-	
-/*  Tabs widget
-/* ------------------------------------ */	
-	(function() {
-		var $tabsNav       = $('.alx-tabs-nav'),
-			$tabsNavLis    = $tabsNav.children('li'),
-			$tabsContainer = $('.alx-tabs-container');
+  $("a#back-to-top").on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 
-		$tabsNav.each(function() {
-			var $this = $(this);
-			$this.next().children('.alx-tab').stop(true,true).hide()
-			.siblings( $this.find('a').attr('href') ).show();
-			$this.children('li').first().addClass('active').stop(true,true).show();
-		});
-
-		$tabsNavLis.on('click', function(e) {
-			var $this = $(this);
-
-			$this.siblings().removeClass('active').end()
-			.addClass('active');
-			
-			$this.parent().next().children('.alx-tab').stop(true,true).hide()
-			.siblings( $this.find('a').attr('href') ).fadeIn();
-			e.preventDefault();
-		}).children( window.location.hash ? 'a[href="' + window.location.hash + '"]' : 'a:first' ).trigger('click');
-
-	})();
-	 
-/*  Slick featured posts
+  /*  Tabs widget
 /* ------------------------------------ */
-	$.fn.randomize = function (selector) {
-		var $elems = selector ? $(this).find(selector) : $(this).children(),
-			$parents = $elems.parent();
+  (function () {
+    var $tabsNav = $(".alx-tabs-nav"),
+      $tabsNavLis = $tabsNav.children("li"),
+      $tabsContainer = $(".alx-tabs-container");
 
-		$parents.each(function () {
-			$(this).children(selector).sort(function (childA, childB) {
-				// * Prevent last slide from being reordered
-				if($(childB).index() !== $(this).children(selector).length - 0.5) {
-					return Math.round(Math.random()) - 0.5;
-				}
-			}.bind(this)).detach().appendTo(this);
-		});
+    $tabsNav.each(function () {
+      var $this = $(this);
+      $this
+        .next()
+        .children(".alx-tab")
+        .stop(true, true)
+        .hide()
+        .siblings($this.find("a").attr("href"))
+        .show();
+      $this.children("li").first().addClass("active").stop(true, true).show();
+    });
 
-		return this;
-	};
+    $tabsNavLis
+      .on("click", function (e) {
+        var $this = $(this);
 
-	$(".slick-featured").randomize().slick({
-	  slidesToShow: 1,
-	  appendArrows: '.slick-featured-nav',
-	  dots: true,
-	  arrows: true,
-	  responsive: [
-		{
-		  breakpoint: 480,
-		  settings: {
-			dots: false,
-		  }
-		}
-	  ]
-	});	
+        $this.siblings().removeClass("active").end().addClass("active");
 
-/*  Slick highlights
+        $this
+          .parent()
+          .next()
+          .children(".alx-tab")
+          .stop(true, true)
+          .hide()
+          .siblings($this.find("a").attr("href"))
+          .fadeIn();
+        e.preventDefault();
+      })
+      .children(
+        window.location.hash
+          ? 'a[href="' + window.location.hash + '"]'
+          : "a:first"
+      )
+      .trigger("click");
+  })();
+
+  /*  Slick featured posts
 /* ------------------------------------ */
-	$.fn.randomize = function (selector) {
-		var $elems = selector ? $(this).find(selector) : $(this).children(),
-			$parents = $elems.parent();
+  $.fn.randomize = function (selector) {
+    var $elems = selector ? $(this).find(selector) : $(this).children(),
+      $parents = $elems.parent();
 
-		$parents.each(function () {
-			$(this).children(selector).sort(function (childA, childB) {
-				// * Prevent last slide from being reordered
-				if($(childB).index() !== $(this).children(selector).length - 0.5) {
-					return Math.round(Math.random()) - 0.5;
-				}
-			}.bind(this)).detach().appendTo(this);
-		});
+    $parents.each(function () {
+      $(this)
+        .children(selector)
+        .sort(
+          function (childA, childB) {
+            // * Prevent last slide from being reordered
+            if ($(childB).index() !== $(this).children(selector).length - 0.5) {
+              return Math.round(Math.random()) - 0.5;
+            }
+          }.bind(this)
+        )
+        .detach()
+        .appendTo(this);
+    });
 
-		return this;
-	};
+    return this;
+  };
 
-	$(".slick-highlights").randomize().slick({
-	  slidesToShow: 5,
-	  appendArrows: '.slick-highlights-nav',
-	  dots: false,
-	  arrows: true,
-	  responsive: [
-	    {
-		  breakpoint: 1080,
-		  settings: {
-			slidesToShow: 4
-		  }
-		},
-		{
-		  breakpoint: 880,
-		  settings: {
-			slidesToShow: 3
-		  }
-		},
-		{
-		  breakpoint: 780,
-		  settings: {
-			slidesToShow: 2
-		  }
-		},
-		{
-		  breakpoint: 480,
-		  settings: {
-			slidesToShow: 2
-		  }
-		}
-	  ]
-	});	
-	
+  $(".slick-featured")
+    .randomize()
+    .slick({
+      slidesToShow: 1,
+      appendArrows: ".slick-featured-nav",
+      dots: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            dots: false,
+          },
+        },
+      ],
+    });
+
+  /*  Slick highlights
+/* ------------------------------------ */
+  $.fn.randomize = function (selector) {
+    var $elems = selector ? $(this).find(selector) : $(this).children(),
+      $parents = $elems.parent();
+
+    $parents.each(function () {
+      $(this)
+        .children(selector)
+        .sort(
+          function (childA, childB) {
+            // * Prevent last slide from being reordered
+            if ($(childB).index() !== $(this).children(selector).length - 0.5) {
+              return Math.round(Math.random()) - 0.5;
+            }
+          }.bind(this)
+        )
+        .detach()
+        .appendTo(this);
+    });
+
+    return this;
+  };
+
+  $(".slick-highlights")
+    .randomize()
+    .slick({
+      slidesToShow: 5,
+      appendArrows: ".slick-highlights-nav",
+      dots: false,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1080,
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+        {
+          breakpoint: 880,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 780,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+      ],
+    });
+
+  $(".slick-products").slick({
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 880,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  });
+  $(".slick-top-banner").slick({
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: false,
+    arrows: false,
+  });
 });
