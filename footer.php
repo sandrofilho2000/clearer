@@ -56,7 +56,17 @@
 								<?php if ( get_theme_mod('footer-logo') ): ?>
 									<img id="footer-logo" src="<?php echo esc_url( get_theme_mod('footer-logo') ); ?>" alt="<?php echo esc_attr( get_bloginfo('name')); ?>">
 								<?php endif; ?>
-								
+								<?php
+								// Display the footer menu
+								if ( has_nav_menu( 'footer' ) ) {
+									wp_nav_menu( array(
+										'theme_location' => 'footer',
+										'container'      => 'nav',
+										'container_id'   => 'footer-menu',
+										'menu_class'     => 'footer-menu-class',
+									) );
+								} 
+								?>
 								<div id="copyright">
 									<?php if ( get_theme_mod( 'copyright' ) ): ?>
 										<p><?php echo esc_html( get_theme_mod( 'copyright' ) ); ?></p>

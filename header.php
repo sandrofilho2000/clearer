@@ -2,6 +2,22 @@
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YKE4SJQ9P"></script>
+<meta name="google-adsense-account" content="ca-pub-4746860193894843">
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-4YKE4SJQ9P');
+	</script>
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRVHH9BH');</script>
+<!-- End Google Tag Manager -->
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -9,12 +25,15 @@
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
 	<?php endif; ?>
 	<script src="https://cdn.tailwindcss.com"></script>
+	<meta name="google-site-verification" content="wNwL0Xvk9uYyzmWSk-Ewbx_Jt3tTEi2911JTMCF1FZs" />
+	<!-- Google tag (gtag.js) -->
 
-	<?php wp_head(); ?>
-</head>
-
+<?php wp_head(); ?>
 <body <?php body_class(); ?>>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVHH9BH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <?php if ( get_theme_mod( 'theme-toggle', 'on' ) == 'on' ): ?>
 	<script>
 		document.body.classList.add(localStorage.getItem('theme') || 'light');

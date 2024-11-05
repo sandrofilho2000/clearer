@@ -2,7 +2,11 @@
 
 <div class="content">
 
-	<div class="stickywrap">
+		<a href="#" class="notice-icon mt-[20px] block">
+			<img width="750" height="375" src="https://somdaterrablog.com/wp-content/uploads/2024/11/ARTE-728X90.png" class="w-full" alt="" fetchpriority="high">
+		</a>
+
+		<div class="stickywrap">
 
 		<h3 class="stickywrap-heading">
 			<?php do_action( 'alx_ext_sharrre' ); ?>

@@ -37,9 +37,7 @@
 			
 			<div class="blog-card-date"><?php the_time( get_option('date_format') ); ?></div>
 			
-			<?php if ( get_theme_mod( 'more-link', 'on' ) =='on' ): ?>
-				<a class="more-link-custom" href="<?php the_permalink(); ?>"><i class="fas fa-arrow-right"></i></a>
-			<?php endif; ?>
+
 			
 		</div>
 

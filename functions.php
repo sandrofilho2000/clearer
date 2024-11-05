@@ -531,6 +531,20 @@ if ( ! function_exists( 'clearer_body_class' ) ) {
 }
 add_filter( 'body_class', 'clearer_body_class' );
 
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'footer' => __( 'Footer Menu' )
+        )
+    );
+}
+add_action( 'init', 'register_my_menus' );
+
+function force_https_content($content) {
+    return str_replace("http://", "https://", $content);
+}
+add_filter('the_content', 'force_https_content');
+
 
 function clearer_custom_nav_menu($location) {
     if (($locations = get_nav_menu_locations()) && isset($locations[$location])) {
